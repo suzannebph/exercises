@@ -15,14 +15,10 @@ int main (int argc, char** argv)
 
 	queue<unsigned int> prev;
 	unsigned int sum = 0;
-	unsigned int next = 0;
-	for (int i = 1; ; i++)
+	unsigned int next = 1;
+	while (next <= max)
 	{
-		if (prev.empty())
-		{
-			next = i;
-		}
-		else
+		if (!prev.empty())
 		{
 			next = prev.front();
 			if (prev.size() == 2) 
@@ -39,8 +35,7 @@ int main (int argc, char** argv)
 		if (!(next & 1)) 
 			sum += next;
 		
-		if (next >= max) break;
-	}
+	} 
 
 	cout << "Sum: " << sum << endl;
 }
